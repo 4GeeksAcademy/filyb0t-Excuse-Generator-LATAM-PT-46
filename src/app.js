@@ -1,4 +1,3 @@
-/* eslint-disable */
 import "bootstrap";
 import "./style.css";
 
@@ -10,12 +9,14 @@ window.onload = () => {
     document.querySelector("#the-excuse").innerHTML = generateExcuse();
   });
 
-  console.log("Everything is working!");
 };
+function randomELement (array){
+  return array[ Math.floor(Math.random() * array.length)]
+}
 
 let generateExcuse = () => {
-  let pronoun = ["A", "The"];
-  let subject = [
+  let pronouns = ["A", "The"];
+  let subjects = [
     "jug",
     "raccon",
     "rat",
@@ -24,25 +25,25 @@ let generateExcuse = () => {
     "teacher",
     "figther"
   ];
-  let action = ["stole my", "took my", "drop my", "strike my", "bite my"];
-  let possetion = ["Homework", "Lunch", "Arm", "pistol", "phone", "toe"];
-  let where = ["street", "stadium", "my house", "church", "school"];
+  let actions = ["stole my", "took my", "drop my", "strike my", "bite my"];
+  let possetions = ["Homework", "Lunch", "Arm", "pistol", "phone", "toe"];
+  let places = ["street", "stadium", "my house", "church", "school"];
 
-  let pronounIndex = Math.floor(Math.random() * pronoun.length);
-  let subjectIndex = Math.floor(Math.random() * subject.length);
-  let actionIndex = Math.floor(Math.random() * action.length);
-  let possetionIndex = Math.floor(Math.random() * possetion.length);
-  let whereIndex = Math.floor(Math.random() * where.length);
+  let pronoun = randomELement(pronouns)
+  let subject = randomELement(subjects)
+  let action = randomELement(actions)
+  let possetion = randomELement(possetions)
+  let where = randomELement(places)
 
   return (
-    pronoun[pronounIndex] +
+    pronoun +
     " " +
-    subject[subjectIndex] +
+    subject +
     " " +
-    action[actionIndex] +
+    action +
     " " +
-    possetion[possetionIndex] +
+    possetion+
     " " +
-    where[whereIndex]
+    where
   );
 };
